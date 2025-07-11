@@ -5,7 +5,6 @@ import data from "../../data/data.json"; // Import the data for the CardComplete
 
 import "../../styles/App.scss"; // Import the styles for the CardComplete component
 
-
 const CardComplete = () => {
   const { showCardComplete, setShowCardComplete, cardId } = useContext(context);
 
@@ -16,11 +15,14 @@ const CardComplete = () => {
     cualificacion: "bg__yellow",
   };
 
+  // Funcion para manejar el cierre de la tarjeta completa
+  // y ocultarla
   const handleClose = () => {
     setShowCardComplete(false);
   };
 
-if (!data[cardId]) return null;
+  // Si no hay un cardId seleccionado, no renderizar nada
+  if (!data[cardId]) return null;
 
   return (
     <div className={`bg__card-complete ${showCardComplete ? "show" : ""}`}>
@@ -31,7 +33,11 @@ if (!data[cardId]) return null;
         </div>
         <p className="card__description">{data[cardId].response}</p>
         <div>
-          <button className={`card__button ${colorMap[data[cardId].nameFilter]}`}>{data[cardId].nameFilter}</button>
+          <button
+            className={`card__button ${colorMap[data[cardId].nameFilter]}`}
+          >
+            {data[cardId].nameFilter}
+          </button>
         </div>
       </article>
     </div>
