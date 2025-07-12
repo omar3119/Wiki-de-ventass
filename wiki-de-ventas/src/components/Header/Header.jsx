@@ -1,13 +1,17 @@
 import { FaMoon } from "react-icons/fa";
-
+import { useContext } from "react";
+import { context } from "../../context/context"; // Import the context
 import "../../styles/Header.scss"; // Import the styles for the Header component
 
 const Header = () => {
+ const { toggleTheme } = useContext(context); 
+
   const navText = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
+
   return (
     <header className="header">
       <div className="header__container">
@@ -20,7 +24,7 @@ const Header = () => {
           </ul>
         </nav>
         <div>
-          <FaMoon className="moon-icon" />
+          <FaMoon onClick={toggleTheme} className="moon-icon" />
         </div>
       </div>
     </header>

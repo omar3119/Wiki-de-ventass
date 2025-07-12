@@ -7,6 +7,9 @@ import "../../styles/Wiki.scss"; // Import the styles for the Wiki page
 
 // Card --> Wiki 
 const Card = ({ title, description, nameFilter, id }) => {
+
+  // Mapeo de colores para los botones
+  // dependiendo del filtro de nombre
   const colorMap = {
     cierre: "bg__green",
     apertura: "bg__blue",
@@ -14,9 +17,10 @@ const Card = ({ title, description, nameFilter, id }) => {
     cualificacion: "bg__yellow",
   };
 
-  const { setShowCardComplete,setCardId } = useContext(context);
+  const { setShowCardComplete,setCardId, darkMode } = useContext(context);
 
-  // Function to handle showing the complete card view
+  // Funcion para manejar el clic en la tarjeta
+  // y mostrar la tarjeta completa
   const handleCardClick = (e) => {
     let index =e.target.closest(".card").id;
     setCardId(--index);
@@ -25,7 +29,7 @@ const Card = ({ title, description, nameFilter, id }) => {
 
   return (
 
-    <div className="card" onClick={handleCardClick} id={id}>
+    <div className={`card ${darkMode ? "dark-theme__card" : "light-theme__card"}`} onClick={handleCardClick} id={id}>
       <h2 className="card__title">{title}</h2>
       <p className="card__description">{description}</p>
 
