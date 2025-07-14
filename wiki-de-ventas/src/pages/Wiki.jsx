@@ -20,10 +20,6 @@ const PageWiki = () => {
         (card.nameFilter?.toLowerCase() || "").includes(texto)
     );
 
-    if(resultados.length === 0) {
-
-    }
-console.log(resultados)
     setFilteredCards(resultados);
   }, [searchTerm]);
   return (
