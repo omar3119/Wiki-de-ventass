@@ -6,7 +6,7 @@ import data from "../../data/data.json"; // Import the data for the CardComplete
 import "../../styles/App.scss"; // Import the styles for the CardComplete component
 
 const CardComplete = () => {
-  const { showCardComplete, setShowCardComplete, cardId } = useContext(context);
+  const { showCardComplete, setShowCardComplete, cardId, darkMode } = useContext(context);
 
   const colorMap = {
     cierre: "bg__green",
@@ -26,10 +26,10 @@ const CardComplete = () => {
 
   return (
     <div className={`bg__card-complete ${showCardComplete ? "show" : ""}`}>
-      <article className="card__complete" id={cardId}>
+      <article className={`card__complete ${cardId} ${darkMode ? "dark-theme" : ""}`}>
         <div className="card__header">
           <h2 className="card__title">{data[cardId].title}</h2>
-          <MdClose className="card__close" onClick={handleClose} />
+          <MdClose className={`card__close ${darkMode ? "card__close-theme" : ""}`} onClick={handleClose} />
         </div>
         <p className="card__description">{data[cardId].response}</p>
         <div>

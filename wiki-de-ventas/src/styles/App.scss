@@ -1,7 +1,6 @@
 $light-color: #eeeeee;
 $dark-color: #23262e;
 
-
 * {
   margin: 0;
   padding: 0;
@@ -48,21 +47,19 @@ $dark-color: #23262e;
   justify-content: center;
   padding: 20px;
   background-color: #000000ab;
-  border-radius: 8px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-
   .card__complete {
-    background-color: #1E2028;
+    background-color: #e5e5e7;
     width: 100%;
     max-width: 450px;
     padding: 20px;
     border-radius: 8px;
     position: relative;
-    color: white;
+    color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -74,12 +71,19 @@ $dark-color: #23262e;
   }
   .card__close {
     cursor: pointer;
-    color: #ffffff;
+    color: #000000;
     font-size: 24px;
   }
   .card__close:hover {
     background-color: #a70a0a;
     color: #fff;
+  }
+  .card__close-theme {
+    color: #ffffff;
+  }
+  .dark-theme {
+    background-color: #1e2028;
+    color: $light-color;
   }
 }
 
