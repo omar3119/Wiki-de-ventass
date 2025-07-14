@@ -20,12 +20,17 @@ const PageWiki = () => {
         (card.nameFilter?.toLowerCase() || "").includes(texto)
     );
 
+    if(resultados.length === 0) {
+
+    }
+console.log(resultados)
     setFilteredCards(resultados);
   }, [searchTerm]);
   return (
     <div className="page-wiki">
       <Search onSearch={setSearchTerm} />
       <section className="cards">
+
         {filteredCards.map((item, index) => (
           <Card
             key={index}
@@ -35,6 +40,11 @@ const PageWiki = () => {
             id={item.id}
           />
         ))}
+        {filteredCards.length === 0 && (
+          <div className="no-results">
+            <p>No se encontraron resultados para "{searchTerm}"</p>
+          </div>
+        )}
       </section>
     </div>
   );
