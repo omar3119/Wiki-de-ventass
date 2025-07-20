@@ -14,7 +14,6 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const { toggleTheme, darkMode } = useContext(context);
-  console.log(darkMode);
 
   const navText = [
     { name: "Home", path: "/" },
