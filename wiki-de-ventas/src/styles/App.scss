@@ -36,6 +36,7 @@ $dark-color: #23262e;
 
   .layout__main {
     width: 100%;
+    @include flex-center;
     max-width: 1024px;
   }
 }
